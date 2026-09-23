@@ -45,7 +45,33 @@ Start accelerated sprint – Day 1
 ```
 
 Accomplish will then:
-1. Build the brand brief (name options, domain check, positioning)
-2. Pick a domain
-3. Draft the first 2 pillar posts
-4. Update this log with what was completed and Day 2's command
+1. Read `PLAN.md` and this file to confirm Day 1 work
+2. Build the brand brief (name options, domain check, positioning)
+3. Pick a domain
+4. Draft the first 2 pillar posts
+5. Update this log with what was completed and Day 2's command
+
+---
+
+## Example format for future entries
+
+### 2026-09-24 — Day 1 / Accelerated Sprint
+
+#### What Accomplish did
+- Built brand brief; selected brand name: **___**
+- Checked domain availability and registered: **___**
+- Drafted 2 pillar posts: "___" and "___"
+- Set up site template on Bluehost
+- Created initial Pinterest business account
+
+#### What Jessie reviewed
+- N/A (first content review scheduled for Day 5/6)
+
+#### Key results
+- Revenue: $0 | Traffic: 0 | New products: 0 | New posts: 2
+- Wins: brand name and domain locked in
+- Friction: ___
+
+#### Next action
+- Owner runs: `Start accelerated sprint – Day 2`
+- Accomplish will research keywords, generate 5 more blog posts, and create 10 Pinterest pins

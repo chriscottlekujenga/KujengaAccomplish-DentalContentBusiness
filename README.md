@@ -17,9 +17,19 @@ A faceless, AI-run consumer oral-health education brand that teaches people (mai
 - **Jessie's weekly review checklist:** [`REVIEW_TEMPLATE.md`](./REVIEW_TEMPLATE.md)
 - **Brand brief template:** [`docs/BRAND_BRIEF_TEMPLATE.md`](./docs/BRAND_BRIEF_TEMPLATE.md)
 
-## How to run a session
+## How to run a session (every session follows this loop)
 
-Open Accomplish and give one command from the daily queue in `PLAN.md`:
+### 1. Start of every session — Accomplish checks the repo
+
+Accomplish reads `PLAN.md` and `WORK_LOG.md` to determine:
+- What day/week we are on
+- What was already completed
+- What the next action is
+- Whether any strategic pivots were approved in the last review
+
+### 2. Execute the day's command
+
+Use one command from the daily queue in `PLAN.md`:
 
 ```text
 Week 1, Day 1: build the brand brief, pick the domain, draft the first 2 pillar posts.
@@ -30,6 +40,18 @@ Or start the accelerated sprint:
 ```text
 Start accelerated sprint – Day 1
 ```
+
+### 3. End of every session — Accomplish records progress
+
+Accomplish updates `WORK_LOG.md` with:
+- What was done
+- Key results (revenue, traffic, new products, new posts, wins, friction)
+- What needs to happen next
+- Any strategic pivots or blockers
+
+Then Accomplish commits and pushes the update to GitHub.
+
+See [`SESSION_LOOP.md`](./SESSION_LOOP.md) for the exact procedure.
 
 ## Money target
 

@@ -100,7 +100,39 @@ If a channel is underperforming by >30% for 2 consecutive review cycles, pivot:
 - Etsy weak → add TPT bundles or Amazon KDP low-content books
 - Affiliate weak → increase email frequency or bundle affiliate picks into products
 
-## 7. When to Request System Changes
+## 7. Session Loop (Accomplish must follow this every day)
+
+### Start-of-session check
+
+Accomplish **must** read the following before doing anything else:
+1. `PLAN.md` — current phase, daily command queue, strategic review cadence
+2. `WORK_LOG.md` — last completed work, next action, open blockers, approved pivots
+3. `docs/BRAND_BRIEF_TEMPLATE.md` — locked-in brand decisions (name, positioning, what never to say)
+4. `docs/BUYER_RESEARCH.md` — who we're targeting and why (so content stays on-strategy)
+
+From this, Accomplish determines:
+- Which command to run today
+- What already exists so nothing is duplicated
+- Whether revenue is on/off track and if a pivot is due
+
+### End-of-session recording
+
+Accomplish **must** update `WORK_LOG.md` with a dated entry containing:
+- What was accomplished
+- Key numbers (revenue, traffic, new subscribers, new listings)
+- Wins and friction
+- Next action (the exact command for the next session)
+- Any strategic change approved by the owner
+
+Then commit and push the change:
+
+```bash
+git add -A
+git commit -m "YYYY-MM-DD: [brief summary of work done]"
+git push origin main
+```
+
+## 8. When to Request System Changes
 
 If Accomplish needs a new capability to keep the business moving (better browser automation, new tool integration, batch actions, analytics parsing, etc.), open an issue or discussion at:
 
