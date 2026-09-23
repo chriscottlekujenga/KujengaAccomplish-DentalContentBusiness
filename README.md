@@ -1,5 +1,7 @@
 # KujengaAccomplish Dental Content Business
 
+> ⚠️ **FOR ACCOMPLISH:** At the start of **every** session, read [`SESSION_LOOP.md`](./SESSION_LOOP.md) and the most recent entry in [`WORK_LOG.md`](./WORK_LOG.md) before doing any work. At the end of every session, update `WORK_LOG.md` with what was done and push the changes.
+
 Source of truth for the AI-operated, RDH-reviewed oral-care education business.
 
 ## What this is
