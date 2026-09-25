@@ -109,3 +109,26 @@ Accomplish will then:
 - Owner runs: `Start accelerated sprint – Day 3`
 - Accomplish will: draft the /sugar-and-kids-teeth post (unblocks Pin 14), then build the 3 product kits per plan — Stop-the-Brushing-Battles Kit contents ($24), Dental Health Month classroom pack ($12), and the morning/night routine chart ($9 bundle tier) — with full contents lists, then stage Etsy/TPT listing copy
 - Reminder: if the domain is purchased by Day 3, site setup (Bluehost/WordPress) can begin this session; otherwise it holds until the domain exists
+
+---
+
+### 2026-09-25 — Mini-Review Session (between Day 2 and Day 3)
+
+#### What Accomplish did
+- Compiled review-packets/PACKET_01_mini_review_posts_01-08.md: Jessie's early trial review of all 8 drafted posts
+- Packet contains 33 specific claim checkboxes across the 8 posts, with 3 high-priority flags (floss-first order, shoe-tying/dexterity rule, fluoride-from-first-tooth)
+- Added 4 systematic questions (tone, claim comfort, affiliate comfort, never-say list) whose answers become writing rules for posts 9-30
+- Time estimate for Jessie: 45-60 minutes
+
+#### What Jessie reviewed
+- IN PROGRESS — packet delivered, awaiting her reply. This is her trial run of the weekly review workflow.
+
+#### Key results
+- Revenue: $0 | Traffic: 0 | Products: 0 | Posts: 8 (all pending review)
+- Wins: systematic issues will be caught before 22 more posts are drafted in the same voice; Jessie gets to trial the workflow with zero commitment
+- Friction: none — packet built while sprint continues; no day delayed
+
+#### Next action
+- Owner/Jessie: review the packet (GitHub: review-packets/PACKET_01_mini_review_posts_01-08.md, or ask Accomplish to paste posts in chat)
+- Owner runs: `Start accelerated sprint – Day 3`
+- Accomplish will: draft the /sugar-and-kids-teeth post, build the 3 product kits with listing copy; apply Jessie's mini-review fixes when her reply arrives (no dependency — kits and posts proceed in parallel)
