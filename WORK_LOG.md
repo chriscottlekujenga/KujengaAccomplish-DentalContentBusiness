@@ -157,3 +157,30 @@ Accomplish will then:
 - Owner runs: `Start accelerated sprint – Day 4`
 - Accomplish will: build the 2 classroom pack variants (3–5 grade band + homeschool co-op version), draft posts 10-12 (bad breath basics for adults, the dentist-visit prep guide for kids, electric brush buying guide for adults), and stage the affiliate product shortlist with current commission rates
 - Standing reminder: domain purchase unlocks site setup — everything else proceeds without it
+
+---
+
+### 2026-09-26 — Day 4 / Accelerated Sprint
+
+#### What Accomplish did
+- Session loop START: pulled repo (current), confirmed Day 4 queue
+- Built content/products/PRODUCT_02A_classroom_pack_3-5.md — grades 3-5 variant, $12: aged-up contents (eggshell experiment as science-method sheet, sugar label detectives with real nutrition labels, 16 myth-vs-fact cards, dental careers page), TPT copy, "Whole-School Bundle" $19 strategy with K-2 pack
+- Built content/products/PRODUCT_02B_homeschool_pack.md — $14 multi-age homeschool unit: family-style 5-day lesson plan with K-2 and 3-5 tracks, Smile Interview capstone (social-share activity), editable co-op letter for 8-20 kid classes, co-op license upsell ($24, 5 seats). Product line now: 5 products reusing ~60% shared assets
+- Drafted post 10: content/posts/10-bad-breath-basics.md — tongue as #1 missed spot, fix sequence ranked by impact, "when it's not hygiene" honesty, therapeutic vs cosmetic mouthwash
+- Drafted post 11: content/posts/11-preparing-child-for-dentist.md — prep timeline (2 weeks out: play dentist; day of: morning slot), the 5 rules (never threaten with the dentist, no horror stories, don't over-promise), first-visit-by-first-birthday
+- Drafted post 12: content/posts/12-electric-toothbrush-buying-guide.md — the feature ladder by price band ($25-50 sweet spot, $100+ is comfort not cleaning), head-cost 3-year math, oscillating vs sonic, subscription verdict
+- Built content/AFFILIATE_SHORTLIST.md — validated programs with rates (MySmile 15-30%, Quip 10%, Opencare $35 flat, Amazon 1-4% as the everything-else), placement map per post, compliance rules (disclosures everywhere, kids-content guardrails, new-brand review by Jessie), application sequence for Day 10
+- Posts total: 12 of ~30 planned
+
+#### What Jessie reviewed
+- Packet 01 (posts 01-08) still IN PROGRESS. Queued for her next packet: post 09 + product specs + now posts 10-12 and the affiliate shortlist (she approves brands/categories before any links go live)
+
+#### Key results
+- Revenue: $0 | Traffic: 0 | Products specced: 5 ($24 kit, $12 K-2, $12 3-5, $14 homeschool, $9 charts) | Posts: 12 | Affiliate programs staged: 5
+- Wins: content library hit 12 posts (40% of the 30-post sprint target) on Day 4 — ahead of plan; product line covers all three buyer segments (parents, teachers, homeschoolers) with deliberate asset reuse; affiliate revenue path now documented ($300-375/mo at maturity)
+- Friction: domain STILL pending (owner action, Day 1) — site setup holds; Pinterest business account + Etsy shop opening also want the brand email, so the domain now gates three setup tasks
+
+#### Next action
+- Owner runs: `Start accelerated sprint – Day 5`
+- Accomplish will: lead magnet production (21-Day Tracker PDF design spec is ready — build the actual page layouts in Canva-ready format), draft posts 13-15 (first dental visit timeline in detail, morning vs night routine science, whitening basics for adults — unlocks GLO Science links), and stage the Etsy shop skeleton (shop policies, About page copy, FAQ)
+- Standing reminder: domain purchase unlocks site setup + brand email + shop openings
