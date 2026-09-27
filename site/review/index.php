@@ -13,7 +13,7 @@
  */
 
 // ===== CONFIG =====
-define('PASSWORD_HASH', 'REPLACE_WITH_GENERATED_HASH'); // setup step above
+define('PASSWORD_HASH', '$2y$10$Zjb2g1qYEhk2YIypCKkxZeHb49HwH6FW2N.ebaysdrQD3Vic4P9dW'); // bcrypt ($2y$ for PHP compat), generated 2026-09-26
 define('OWNER_EMAIL', 'chris@webkujenga.com'); // TODO: swap to hello@brushwithme.com when brand email exists
 define('BRAND', 'Brush With Me');
 $BACKUP_DIR = __DIR__ . '/reviews';

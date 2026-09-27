@@ -237,3 +237,31 @@ Batch-executed Days 6-11 with all human-gated tasks consolidated into OWNER_ACTI
 - Then owner runs: `Owner setup complete — run Day 12`
 - Accomplish will: apply Jessie's fixes + record her systematic rules in BRAND_BRIEF.md, produce lead magnet + pins in Canva, set up the site (theme, pages, posts 01-02 live + quick-indexed), configure MailerLite automation, open Etsy listings, begin pin + drip cadence
 - If Jessie's review hasn't returned by Day 12: production proceeds; her fixes apply when they arrive (content publishes only after her sign-off on the relevant items)
+
+---
+
+### 2026-09-26 — Form Setup Session (infrastructure)
+
+#### What Accomplish did
+- Verified brushwithme.com purchased (Squarespace, registered 23:49 UTC) via RDAP
+- Retrieved correct HostGator NS pair from webkujenga.com's registry record (NS8451/NS8452.HOSTGATOR.COM)
+- Drove Squarespace dashboard → DNS → nameservers (user cleared security reauthentication) → entered HostGator pair → saved; DNS propagated within ~30 min
+- cPanel (user-logged-in): added brushwithme.com as a domain, document root /home4/ab39928/brushwithme.com
+- Uploaded site/review.zip via File Manager, extracted to /review
+- Generated bcrypt hash of the gate password locally (Node/bcryptjs), converted prefix $2b$ → $2y$ for PHP password_verify compatibility
+- Uploaded index.php with the live hash (overwrite confirmed via dialog after first upload silently failed on the overwrite checkbox)
+- **Gate verified live: brushwithme.com/review — correct password unlocks the full 37-item form; wrong password rejected**
+- Note: hash.php (0 bytes, empty) remains in /review on server — harmless, optional cleanup; never contained content
+
+#### What Jessie reviewed
+- Her packet is now a live web form at brushwithme.com/review (password-gated, mobile-friendly, results emailed + server-backed-up). Awaiting her submission.
+
+#### Key results
+- Revenue: $0 | Traffic: 0 (site not yet launched — review form only) | Infrastructure: domain live, DNS on HostGator, form deployed and tested
+- Wins: domain registered + pointed + propagated + form live all in one session; the review workflow is now fully digital (no GitHub knowledge needed for Jessie)
+- Friction: cPanel File Manager UI resisted automation (stale refs, re-renders) — solved with direct URL navigation and evaluate-based clicks; bcryptjs $2b$ vs PHP $2y$ prefix incompatibility caught and fixed
+
+#### Next action
+- Owner: send Jessie **brushwithme.com/review** + the password (text/email); she gets ~90-120 min for this first packet
+- Owner runs: `Owner setup complete — run Day 12` (remaining Stops 5-6: Canva, MailerLite, Pinterest, Etsy, Search Console, WordPress install — all paste-ready)
+- Accomplish will: apply Jessie's fixes when her submission arrives, produce lead magnet + pins, configure WordPress, publish posts 01-02, wire the email automation
