@@ -265,3 +265,26 @@ Batch-executed Days 6-11 with all human-gated tasks consolidated into OWNER_ACTI
 - Owner: send Jessie **brushwithme.com/review** + the password (text/email); she gets ~90-120 min for this first packet
 - Owner runs: `Owner setup complete — run Day 12` (remaining Stops 5-6: Canva, MailerLite, Pinterest, Etsy, Search Console, WordPress install — all paste-ready)
 - Accomplish will: apply Jessie's fixes when her submission arrives, produce lead magnet + pins, configure WordPress, publish posts 01-02, wire the email automation
+
+---
+
+### 2026-09-27 — Form v2 Session (autosave + content links)
+
+#### What Accomplish did
+- Rewrote site/review/index.php with two owner-requested features:
+  - **Draft autosave:** every radio/comment saves to localStorage (instant on clicks, 700ms debounce on typing); restores automatically on return with a "Restored your saved progress" banner; clears after successful submission; "Lock again" link added
+  - **Content links:** all 37 items now carry a "View content ↗" link to the exact GitHub document referenced (brand brief, posts 09-15, all product specs, lead magnet spec, email sequence, video scripts, affiliate shortlist, Etsy About copy)
+- Committed v2 to repo (b08acca), uploaded to the server via cPanel (user re-authenticated after session expiry; overwrite dialog confirmed), and live-tested everything:
+  - Gate: correct password unlocks ✓, wrong password rejected ✓, lock-reset presents fresh gate ✓
+  - Content links: all rendering, correct targets ✓
+  - Autosave: draft survived full page reload (radio + comment restored, banner shown) ✓
+  - Test data cleared from localStorage; form locked for Jessie's fresh start ✓
+
+#### Key results
+- Revenue: $0 | Traffic: 0 | Infrastructure: review form fully deployed with autosave + linked content
+- Friction: cPanel session expired mid-deployment (second time) — resolved by user re-login; note for future sessions: keep upload/deploy work in one continuous session or plan for re-auth
+
+#### Next action
+- Owner: send Jessie **brushwithme.com/review** + the password — the form is fully ready (autosave means she can do it across multiple sittings on her phone)
+- Owner runs: `Owner setup complete — run Day 12`
+- Accomplish will: apply Jessie's fixes when her submission arrives (check email + /review/reviews/ backups), produce lead magnet + pins, configure WordPress, publish posts 01-02, wire the email automation
