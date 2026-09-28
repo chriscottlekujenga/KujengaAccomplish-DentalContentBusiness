@@ -3,27 +3,25 @@
  * Brush With Me — Clinical Review Form (Password-Gated)
  * URL: brushwithme.com/review  (this file = index.php inside /review/)
  * Gate: session-based password check (hash below)
- * Results: emailed to owner + timestamped backup in /review/reviews/
- *
- * SETUP (one-time, after upload):
- *   1. Via cPanel File Manager, create a file hash.php in /review/ with:
- *        <?php echo password_hash('THE_PASSWORD', PASSWORD_DEFAULT);
- *   2. Visit brushwithme.com/review/hash.php once, copy the output.
- *   3. Paste it into PASSWORD_HASH below, delete hash.php. Done.
+ * Features: per-item links to the referenced content (GitHub), draft autosave
+ *           via localStorage (restores across visits, clears on submit),
+ *           results emailed to owner + timestamped backup in /review/reviews/
  */
 
-// ===== CONFIG =====
 define('PASSWORD_HASH', '$2y$10$Zjb2g1qYEhk2YIypCKkxZeHb49HwH6FW2N.ebaysdrQD3Vic4P9dW'); // bcrypt ($2y$ for PHP compat), generated 2026-09-26
 define('OWNER_EMAIL', 'chris@webkujenga.com'); // TODO: swap to hello@brushwithme.com when brand email exists
 define('BRAND', 'Brush With Me');
 $BACKUP_DIR = __DIR__ . '/reviews';
+
+// GitHub base for content links
+define('GH', 'https://github.com/chriscottlekujenga/KujengaAccomplish-DentalContentBusiness/blob/main/');
 
 session_start();
 
 // ===== GATE =====
 $unlocked = isset($_SESSION['review_unlocked']) && $_SESSION['review_unlocked'] === true;
 if (!$unlocked && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['gate_password'])) {
-  if (hash_equals(PASSWORD_HASH, crypt($_POST['gate_password'], PASSWORD_HASH)) || password_verify($_POST['gate_password'], PASSWORD_HASH)) {
+  if (password_verify($_POST['gate_password'], PASSWORD_HASH)) {
     $_SESSION['review_unlocked'] = true;
     $unlocked = true;
   } else {
@@ -31,6 +29,53 @@ if (!$unlocked && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['gate_pa
   }
 }
 if ($unlocked && isset($_GET['lock'])) { session_destroy(); $unlocked = false; }
+
+// ===== CONTENT LINKS (per item) =====
+// id => [label, GitHub path]
+$LINKS = [
+  'A1' => ['Brand brief (byline rules)', 'docs/BRAND_BRIEF.md'],
+  'A2' => ['Example of the voice (post 01)', 'content/posts/01-brush-or-floss-first.md'],
+  'A3' => ['Affiliate shortlist (brands)', 'content/AFFILIATE_SHORTLIST.md'],
+  'A4' => ['Brand brief (never-say list)', 'docs/BRAND_BRIEF.md'],
+  '9a' => ['Post 09 — Sugar & Kids Teeth', 'content/posts/09-sugar-and-kids-teeth.md'],
+  '9b' => ['Post 09 — Sugar & Kids Teeth', 'content/posts/09-sugar-and-kids-teeth.md'],
+  '9c' => ['Post 09 — Sugar & Kids Teeth', 'content/posts/09-sugar-and-kids-teeth.md'],
+  '10a' => ['Post 10 — Bad Breath Basics', 'content/posts/10-bad-breath-basics.md'],
+  '10b' => ['Post 10 — Bad Breath Basics', 'content/posts/10-bad-breath-basics.md'],
+  '11a' => ['Post 11 — Dentist Visit Prep', 'content/posts/11-preparing-child-for-dentist.md'],
+  '11b' => ['Post 11 — Dentist Visit Prep', 'content/posts/11-preparing-child-for-dentist.md'],
+  '12a' => ['Post 12 — Electric Brush Guide', 'content/posts/12-electric-toothbrush-buying-guide.md'],
+  '12b' => ['Post 12 — Electric Brush Guide', 'content/posts/12-electric-toothbrush-buying-guide.md'],
+  '12c' => ['Post 12 — Electric Brush Guide', 'content/posts/12-electric-toothbrush-buying-guide.md'],
+  '13a' => ['Post 13 — First Dental Visit', 'content/posts/13-first-dental-visit-baby.md'],
+  '13b' => ['Post 13 — First Dental Visit', 'content/posts/13-first-dental-visit-baby.md'],
+  '14a' => ['Post 14 — Morning vs Night', 'content/posts/14-morning-vs-night-brushing.md'],
+  '14b' => ['Post 14 — Morning vs Night', 'content/posts/14-morning-vs-night-brushing.md'],
+  '15a' => ['Post 15 — Whitening Basics', 'content/posts/15-teeth-whitening-basics.md'],
+  '15b' => ['Post 15 — Whitening Basics', 'content/posts/15-teeth-whitening-basics.md'],
+  '15c' => ['Post 15 — Whitening Basics', 'content/posts/15-teeth-whitening-basics.md'],
+  '15d' => ['Post 15 — Whitening Basics', 'content/posts/15-teeth-whitening-basics.md'],
+  'P1' => ['Brushing Battles Kit spec', 'content/products/PRODUCT_01_brushing_battles_kit.md'],
+  'P2' => ['K-2 Classroom Pack spec', 'content/products/PRODUCT_02_classroom_pack.md'],
+  'P3' => ['Grades 3-5 Pack spec', 'content/products/PRODUCT_02A_classroom_pack_3-5.md'],
+  'P4' => ['Homeschool Unit spec', 'content/products/PRODUCT_02B_homeschool_pack.md'],
+  'P5' => ['Routine Charts spec', 'content/products/PRODUCT_03_routine_charts.md'],
+  'P6' => ['21-Day Challenge spec', 'content/products/LEAD_MAGNET_PRODUCTION.md'],
+  'P7' => ['All product specs (pricing)', 'content/products/'],
+  'E1' => ['Email sequence (all 4)', 'content/MAILERLITE_SETUP.md'],
+  'E2' => ['Email sequence (all 4)', 'content/MAILERLITE_SETUP.md'],
+  'E3' => ['Email sequence (all 4)', 'content/MAILERLITE_SETUP.md'],
+  'E4' => ['Email sequence (all 4)', 'content/MAILERLITE_SETUP.md'],
+  'E5' => ['Email sequence (all 4)', 'content/MAILERLITE_SETUP.md'],
+  'V1' => ['Video scripts (all 4)', 'content/video/VIDEO_SCRIPTS_BATCH_01.md'],
+  'V2' => ['Video scripts (all 4)', 'content/video/VIDEO_SCRIPTS_BATCH_01.md'],
+  'V3' => ['Video scripts (all 4)', 'content/video/VIDEO_SCRIPTS_BATCH_01.md'],
+  'V4' => ['Video scripts (all 4)', 'content/video/VIDEO_SCRIPTS_BATCH_01.md'],
+  'V5' => ['Video scripts (all 4)', 'content/video/VIDEO_SCRIPTS_BATCH_01.md'],
+  'F1' => ['Affiliate shortlist', 'content/AFFILIATE_SHORTLIST.md'],
+  'F2' => ['Brand brief', 'docs/BRAND_BRIEF.md'],
+  'F3' => ['Etsy shop About copy', 'content/ETSY_SHOP_SKELETON.md'],
+];
 
 // ===== ITEMS (mirrors PACKET_02) =====
 $SECTIONS = [
@@ -145,10 +190,14 @@ if ($unlocked && $_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['gate_pa
   h1 { color: var(--teal); font-size: 1.5rem; margin: 8px 0 4px; }
   .sub { color: #666; font-size: .95rem; margin-bottom: 16px; }
   .notice { background: #eafaf6; border-left: 4px solid var(--teal); padding: 12px 14px; border-radius: 6px; margin-bottom: 20px; font-size: .95rem; }
+  .restore { background: #fff8e1; border: 1px solid #e8d27c; color: #7a6515; padding: 10px 14px; border-radius: 6px; margin: 0 0 14px; font-size: .9rem; display: none; }
   h2 { color: var(--teal); font-size: 1.05rem; margin: 28px 0 10px; border-bottom: 2px solid var(--mint); padding-bottom: 6px; }
   .item { background: #fff; border: 1px solid #d8e6e2; border-radius: 8px; padding: 12px 14px; margin: 10px 0; }
   .item .label { display: flex; gap: 10px; }
   .item .id { font-weight: 700; color: var(--teal); min-width: 42px; }
+  .item .text { flex: 1; }
+  .content-link { display: inline-block; margin-top: 6px; font-size: .85rem; color: var(--teal); text-decoration: none; border-bottom: 1px dotted var(--teal); }
+  .content-link:hover { border-bottom-style: solid; }
   .choices { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 10px; font-size: .95rem; }
   .choices label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
   textarea { width: 100%; margin-top: 10px; border: 1px solid #c7d8d3; border-radius: 6px; padding: 8px; font: inherit; font-size: .92rem; min-height: 60px; resize: vertical; }
@@ -159,6 +208,8 @@ if ($unlocked && $_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['gate_pa
   .success { background: #e8f7ee; border: 1px solid #7fbf9a; color: #1b6b3a; padding: 18px; border-radius: 10px; text-align: center; font-size: 1.05rem; margin-top: 20px; }
   .err { background: #fdecea; border: 1px solid #e5a49c; color: #8a2b1d; padding: 12px; border-radius: 8px; margin-top: 10px; }
   .small { color: #777; font-size: .85rem; }
+  .saved-note { font-size: .8rem; color: #2a7d4f; margin-top: 8px; opacity: 0; transition: opacity .4s; }
+  .saved-note.show { opacity: 1; }
   /* gate */
   .gate-card { background: #fff; border: 1px solid #d8e6e2; border-radius: 12px; padding: 28px; max-width: 420px; margin: 60px auto 0; text-align: center; }
   .gate-card input[type=password] { width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #c7d8d3; border-radius: 8px; margin: 16px 0 8px; }
@@ -191,6 +242,7 @@ if ($unlocked && $_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['gate_pa
     Fixes get applied to everything, and your rules get recorded for all future content.<br><br>
     <span class="small">Nothing publishes without your sign-off on that item.</span>
   </div>
+  <script>try { localStorage.removeItem('bwm_review_draft_v1'); } catch(e) {}</script>
 
 <?php else: ?>
   <!-- ============ REVIEW FORM ============ -->
@@ -198,17 +250,21 @@ if ($unlocked && $_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['gate_pa
   <div class="sub">Sprint output, Days 1–10 · 37 items · est. 90–120 min (future weekly packets run 60–90)</div>
   <?php if (!empty($error)): ?><div class="err"><?php echo htmlspecialchars($error); ?></div><?php endif; ?>
   <div class="notice">
-    <b>How this works:</b> each row = one claim or decision. Mark <b>Approve</b>, <b>Fix</b>, or <b>Skip</b> — add a comment on any Fix (or wherever you have thoughts). The full materials live at
-    <b>github.com/chriscottlekujenga/KujengaAccomplish-DentalContentBusiness</b> (posts in <i>content/posts</i>, products in <i>content/products</i>).
+    <b>How this works:</b> each row = one claim or decision. Mark <b>Approve</b>, <b>Fix</b>, or <b>Skip</b> — add a comment on any Fix (or wherever you have thoughts). Each item has a
+    <b>View content ↗</b> link to the exact document it refers to. Your progress <b>saves automatically</b> as you go — leave and come back anytime on this device; it clears after you submit.
     Submit at the bottom — it goes straight to Chris. Works on your phone. <a href="?lock=1">Lock again</a>
   </div>
+  <div class="restore" id="restoreNote">✏️ <b>Restored your saved progress</b> — continue where you left off.</div>
 
-  <form method="post" action="">
+  <form method="post" action="" id="reviewForm">
   <?php foreach ($SECTIONS as $section => $items): ?>
     <h2><?php echo htmlspecialchars($section); ?></h2>
     <?php foreach ($items as [$id, $label]): ?>
       <div class="item">
-        <div class="label"><span class="id"><?php echo $id; ?></span><span><?php echo htmlspecialchars($label); ?></span></div>
+        <div class="label"><span class="id"><?php echo $id; ?></span><span class="text"><?php echo htmlspecialchars($label); ?></span></div>
+        <?php if (isset($LINKS[$id])): ?>
+          <a class="content-link" href="<?php echo htmlspecialchars(GH . $LINKS[$id][1]); ?>" target="_blank" rel="noopener">📄 View content ↗ <span class="small"><?php echo htmlspecialchars($LINKS[$id][0]); ?></span></a>
+        <?php endif; ?>
         <div class="choices">
           <label><input type="radio" name="v_<?php echo $id; ?>" value="Approve" required> ✓ Approve</label>
           <label><input type="radio" name="v_<?php echo $id; ?>" value="Fix"> ✏️ Fix</label>
@@ -222,9 +278,61 @@ if ($unlocked && $_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['gate_pa
   <h2>Overall Notes (optional)</h2>
   <textarea class="overall-area" name="overall" placeholder="Anything else — tone, strategy, ideas, concerns. You can also just talk to Chris directly; this is the paper trail."></textarea>
 
+  <div class="saved-note" id="saveNote">✓ Progress saved on this device</div>
   <button type="submit">Send Review to Chris →</button>
-  <p class="small" style="text-align:center;">Your answers save even if email fails (backup file on the server). Do not refresh after submitting.</p>
+  <p class="small" style="text-align:center;">Your answers save automatically as you go and even if email fails (backup file on the server). Do not refresh after submitting.</p>
   </form>
+
+  <script>
+  (function() {
+    var KEY = 'bwm_review_draft_v1';
+    var form = document.getElementById('reviewForm');
+    if (!form) return;
+    var inputs = form.querySelectorAll('input[type=radio], textarea');
+    var saveTimer = null;
+
+    function collect() {
+      var data = {};
+      form.querySelectorAll('input[type=radio]:checked').forEach(function(r) { data[r.name] = r.value; });
+      form.querySelectorAll('textarea').forEach(function(t) { if (t.value.trim() !== '') data[t.name] = t.value; });
+      return data;
+    }
+    function save() {
+      try { localStorage.setItem(KEY, JSON.stringify(collect())); } catch(e) {}
+      var note = document.getElementById('saveNote');
+      if (note) { note.classList.add('show'); setTimeout(function(){ note.classList.remove('show'); }, 1500); }
+    }
+    function restore() {
+      var raw = null;
+      try { raw = localStorage.getItem(KEY); } catch(e) {}
+      if (!raw) return false;
+      var data;
+      try { data = JSON.parse(raw); } catch(e) { return false; }
+      var restored = false;
+      Object.keys(data).forEach(function(name) {
+        var val = data[name];
+        if (typeof val === 'string' && name.indexOf('v_') === 0) {
+          var radio = form.querySelector('input[name="' + name + '"][value="' + val + '"]');
+          if (radio) { radio.checked = true; restored = true; }
+        } else {
+          var ta = form.querySelector('textarea[name="' + name + '"]');
+          if (ta) { ta.value = val; if (val.trim() !== '') restored = true; }
+        }
+      });
+      return restored;
+    }
+    if (restore()) {
+      var note = document.getElementById('restoreNote');
+      if (note) note.style.display = 'block';
+    }
+    inputs.forEach(function(el) {
+      el.addEventListener('change', save);
+      if (el.tagName === 'TEXTAREA') {
+        el.addEventListener('input', function() { clearTimeout(saveTimer); saveTimer = setTimeout(save, 700); });
+      }
+    });
+  })();
+  </script>
 <?php endif; ?>
 
 </div>
