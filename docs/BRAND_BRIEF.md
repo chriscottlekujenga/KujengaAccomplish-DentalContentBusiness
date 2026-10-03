@@ -73,3 +73,15 @@ For **parents and teachers** who need **clinically trustworthy oral care guidanc
 - Etsy shop: "HygienistReviewed" (verify availability at signup)
 - Pinterest business: "Hygienist Reviewed"
 - Email from-name: "Jessie at Hygienist Reviewed"
+---
+
+## 8. Reviewer-locked decisions (2026-10-03, from Jessie's full review, submitted 2026-09-30)
+
+> Jessie Tang completed the Packet 02 full review (review_2026-09-30_195211.txt via the site form). Result: 32 Approve / 5 Fix. These decisions are now permanent writing rules.
+
+- **Byline (locks section 5 badge + all content):** "Jessie Tang, RDH, 25 years of clinical dental hygiene experience." Applied across all 15 posts, products, emails, pins, video CTAs.
+- **Tone rule (from 10b):** No clinical jargon aimed at lay readers ("surviving proper hygiene" style phrasing banned). Write conversationally, like talking to the target market.
+- **Punctuation rule (from 10b):** No em dashes or en dashes in any content, now and moving forward. Use commas, colons, or full stops. Applied: all 27 content files swept clean; verify every future draft.
+- **First dental visit timing (11b):** "When the first tooth erupts" (post 11 wording). Note: posts 02, 03, 13 use "first birthday or within 6 months of first tooth," which follows ADA/AAPD guidance and was explicitly approved by Jessie in packet sections 13a-b and posts 01-08, so it stands. Post 11 uses eruption wording; both may appear across the site.
+- **Electric brush claim rule (12a + 12b):** Never write "oscillating has more evidence" or "hygienists recommend electric" as the core claim. The rule: the person and their technique at the gumline matter more than the brush type. Electric brushes help by making good technique automatic (timer, pressure sensor). Manual users who miss the gumline get gumline cavities too. 12a approved with comment: "Depends on the person more than the brush."
+- **Expertise boundary (12c):** Jessie has no expertise on UV sanitizers and whitening modes; that portion was removed from post 12 entirely. Rule: any feature claim outside hygiene technique and plaque removal goes back to Jessie before publication, or gets cut.

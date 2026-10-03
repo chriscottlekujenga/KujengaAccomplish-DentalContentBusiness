@@ -1,4 +1,4 @@
-# PINTEREST_SKELETON.md — Account Setup + 30-Pin Launch Schedule
+# PINTEREST_SKELETON.md: Account Setup + 30-Pin Launch Schedule
 
 > Created Day 6 of the accelerated sprint. Everything needed to open the Pinterest business account the moment the brand email exists. Then: batch 1 (15 pins) posts 3/day over 10 days; the site-linked pins switch destination URLs after the domain is live.
 
@@ -12,14 +12,14 @@
 Oral care routines reviewed by a real dental hygienist 🦷 Printables & guides that make brushing a habit kids actually keep. Free 21-Day Challenge ↓
 ```
 - **Profile image:** rounded-square tooth + sun/moon mark (same as shop icon)
-- **Website:** brushwithme.com (add at account creation — claim the URL even before the site is live; unclaimed links get demoted)
+- **Website:** brushwithme.com (add at account creation: claim the URL even before the site is live; unclaimed links get demoted)
 - **Confirm website:** Pinterest Settings → Claim → paste the meta tag into the site header at site setup
 
 ## Boards (create 6 at launch)
 
 | Board name | Description | Why it exists |
 |---|---|---|
-| Kids' Brushing Routines | Age-by-age guides, charts, trackers — hygienist-reviewed | Primary buyer (parents) |
+| Kids' Brushing Routines | Age-by-age guides, charts, trackers. Hygienist-reviewed | Primary buyer (parents) |
 | Dental Health for Teachers | Classroom activities, dental health month, K-5 lesson ideas | February spike channel |
 | Homeschool Health & Habits | Unit studies, multi-age activities, printable curricula | Fastest-growing segment |
 | Parenting Wins (Oral Care Edition) | Scripts, troubleshooters, habit-building for resistant brushers | Saves/repin engine |
@@ -28,7 +28,7 @@ Oral care routines reviewed by a real dental hygienist 🦷 Printables & guides 
 
 ## 30-pin launch schedule
 
-Batch 1 = the 15 pins from PINS_BATCH_01.md (concepts + hooks already written). Batch 2 = 15 more: mix of quote-tip pins, product pins, and lead-magnet pins. Cadence: **3 pins/day, alternating boards, all days** — Pinterest rewards consistency over volume.
+Batch 1 = the 15 pins from PINS_BATCH_01.md (concepts + hooks already written). Batch 2 = 15 more: mix of quote-tip pins, product pins, and lead-magnet pins. Cadence: **3 pins/day, alternating boards, all days.** Pinterest rewards consistency over volume.
 
 | Day | Pins (from batch) | Notes |
 |---|---|---|
@@ -50,12 +50,12 @@ Batch 1 = the 15 pins from PINS_BATCH_01.md (concepts + hooks already written). 
 20. "Snack smart: it's frequency, not amount" (→ post 9)
 21. "The dentist visit prep timeline" (→ post 11)
 22. "$25 vs $200 electric brush: what changes?" (→ post 12)
-23. "Night brushing beats morning — here's why" (→ post 14)
+23. "Night brushing beats morning. Here's why" (→ post 14)
 24. "Whitening: skip the charcoal. Here's what works" (→ post 15)
-25. "First dentist visit by age 1 — what really happens" (→ post 13)
+25. "First dentist visit by age 1: what really happens" (→ post 13)
 26. "Sugar Detectives: the classroom activity teachers love" (→ teacher pack)
 27. "Homeschool health unit: teach K-5 together" (→ homeschool pack)
-28. "Stop saying 'go brush' — say this instead" (scripts teaser → kit)
+28. "Stop saying 'go brush.' Say this instead" (scripts teaser → kit)
 29. "The 21-Day Challenge starts tonight" (magnet variant → capture page)
 30. "Meet the hygienist behind the printables" (credibility variant → About)
 
@@ -63,5 +63,5 @@ Batch 1 = the 15 pins from PINS_BATCH_01.md (concepts + hooks already written). 
 
 - Impressions baseline: expect 500-2,000/impressions/mo in month 1 for a new account with consistent pinning
 - Outbound click rate: target 0.5-1% (printables niche norms 0.3-0.8%)
-- Saves: early signal — a pin with 10+ saves is a "make more like this" winner
+- Saves: early signal. A pin with 10+ saves is a "make more like this" winner
 - Any pin >2% outbound CTR → design a variant of it in the next batch

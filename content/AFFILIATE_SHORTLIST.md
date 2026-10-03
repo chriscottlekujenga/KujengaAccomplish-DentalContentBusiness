@@ -1,6 +1,6 @@
-# AFFILIATE_SHORTLIST.md — Validated Programs, Rates, and Fit
+# AFFILIATE_SHORTLIST.md: Validated Programs, Rates, and Fit
 
-> Created Day 4 of the accelerated sprint. Rates validated from research sessions (2025-2026). Programs marked ⭐ are launch priorities — apply first, link first.
+> Created Day 4 of the accelerated sprint. Rates validated from research sessions (2025-2026). Programs marked ⭐ are launch priorities: apply first, link first.
 
 ## Program list
 
@@ -8,18 +8,18 @@
 
 | Brand | Rate | Cookie | Fits posts | Notes |
 |-------|------|--------|-----------|-------|
-| ⭐ **MySmile** (water flossers, sonic brushes) | **15–30%** (brushes ~20%, bundles up to 30%) | 30 days | 12, 06, 02 | Best rates in the niche; mid-price products; direct product-category match |
+| ⭐ **MySmile** (water flossers, sonic brushes) | **15-30%** (brushes about 20%, bundles up to 30%) | 30 days | 12, 06, 02 | Best rates in the niche; mid-price products; direct product-category match |
 | ⭐ **Quip** | **10%** (via Skimlinks) | varies | 12, 10 | Subscription model = recurring; the "head replacement" recommendation in post 12 links naturally |
-| **GLO Science** (whitening) | 10% | 30 days | future whitening posts | Hold until a whitening post exists — don't link before content |
-| **Opencure / dental booking** | **$35 flat per booking** | — | 11, dentist-visit content | High-value flat fee; natural fit in the dentist-prep post |
+| **GLO Science** (whitening) | 10% | 30 days | future whitening posts | Hold until a whitening post exists. Don't link before content |
+| **Opencure / dental booking** | **$35 flat per booking** | n/a | 11, dentist-visit content | High-value flat fee; natural fit in the dentist-prep post |
 
 ### Parents / kids (posts 03, 04, 05, 07, 08, 09)
 
 | Brand | Rate | Cookie | Fits posts | Notes |
 |-------|------|--------|-----------|-------|
-| ⭐ **Amazon Associates** (kids' brushes, floss picks, toothpaste, step stools, dentist play kits) | **1–4%** | 24 hrs | all kids posts | Low rate BUT everything-in-one-cart; the play-kit and book recommendations in post 11 only exist on Amazon |
-| **BURST** (kids' + adults' sonic brushes) | rate behind login (historically ~$1-2/sale or % via ambassador program) | — | 04, 03 | Apply and verify; strong kids' product line |
-| **NewSmile** (at-home aligners) | 12% | 30 days | adult audience only | LOW priority — aligner content doesn't exist yet; avoid |
+| ⭐ **Amazon Associates** (kids' brushes, floss picks, toothpaste, step stools, dentist play kits) | **1-4%** | 24 hrs | all kids posts | Low rate BUT everything-in-one-cart; the play-kit and book recommendations in post 11 only exist on Amazon |
+| **BURST** (kids' + adults' sonic brushes) | rate behind login (historically about $1-2/sale or % via ambassador program) | n/a | 04, 03 | Apply and verify; strong kids' product line |
+| **NewSmile** (at-home aligners) | 12% | 30 days | adult audience only | LOW priority: aligner content doesn't exist yet; avoid |
 
 ## Placement map (link → post)
 
@@ -33,7 +33,7 @@
 ## Compliance rules (non-negotiable)
 
 1. **Affiliate disclosure at the top of every post** with links (already in every post's Tools section)
-2. **Only products we'd hand to a patient** — brand rule; a bad product at 30% is still a bad product
+2. **Only products we'd hand to a patient.** Brand rule: a bad product at 30% is still a bad product
 3. **Never** link aligners/whitening in kids' content
 4. FTC disclosure in pin/email copy too: "#ad" or "paid link" where affiliate links appear outside the blog
 5. Jessie reviews any NEW brand/category addition before links go live (add to her review packet)
@@ -44,8 +44,8 @@ At maturity: ~12-15 affiliate sales/mo at ~$25 avg commission = **$300-375/mo** 
 
 ## Application sequence (Day 10 task)
 
-1. Amazon Associates (instant, everything else depends on it)
+1. Amazon Associates (instant approval; everything else depends on it)
 2. MySmile (top rates, direct fit)
 3. Quip via Skimlinks (aggregator: one application, 20+ stores)
 4. BURST (verify kids' program terms)
-5. Opencure (requires site live — post-domain)
+5. Opencure (requires the site to be live; post-domain)

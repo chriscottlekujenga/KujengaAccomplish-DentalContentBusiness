@@ -1,8 +1,8 @@
-# ETSY_ADS_AND_AFFILIATE_PACKET.md — Launch Specs (Day 10)
+# ETSY_ADS_AND_AFFILIATE_PACKET.md: Launch Specs (Day 10)
 
-> Created Day 10 of the accelerated sprint. Two launch specs: (1) Etsy Ads — the first paid test, $3/day, winners-only scaling; (2) affiliate applications — order, credentials needed, and what to say.
+> Created Day 10 of the accelerated sprint. Two launch specs: (1) Etsy Ads, the first paid test: $3/day, winners-only scaling; (2) affiliate applications: order, credentials needed, and what to say.
 
-## Part 1 — Etsy Ads launch spec
+## Part 1: Etsy Ads launch spec
 
 ### Pre-conditions (all must be true before ads start)
 
@@ -10,14 +10,14 @@
 - [ ] 5 products listed (kit, K-2 pack, 3-5 pack, homeschool pack, charts)
 - [ ] Listing photos: 5+ images each (mockup, what's-inside flat-lay, detail crops, lifestyle)
 - [ ] First 2-3 reviews exist (the $1 sample pack + review-request flow)
-- [ ] Owner approval on ad budget: $3/day (~$90/mo ceiling)
+- [ ] Owner approval on ad budget: $3/day (a ~$90/mo ceiling)
 
 ### Launch configuration
 
-- **Budget:** $3/day — Etsy's minimum is $1; $3 gets meaningful data in ~2 weeks
+- **Budget:** $3/day. Etsy's minimum is $1; $3 gets meaningful data in about 2 weeks
 - **Scope:** ads ON for all 5 listings initially (data-gathering phase)
-- **Off-site ads:** ON (Etsy Places listings on Google/Pinterest — pay only on click)
-- **Duration:** 14-day learning window, NO changes during it (Etsy's algorithm needs stable inputs)
+- **Off-site ads:** ON (Etsy places listings on Google/Pinterest; you pay only on click)
+- **Duration:** 14-day learning window with NO changes during it (Etsy's algorithm needs stable inputs)
 
 ### Decision rules (post-learning, from weekly analytics)
 
@@ -26,13 +26,13 @@
 | ROAS > 2.0 (ad spend → >2x revenue) | Scale: shift budget toward this listing |
 | ROAS 1.0-2.0 | Keep on, watch one more week |
 | ROAS < 1.0 after 14 days | Ads off for this listing (organic only) |
-| Any listing with 25+ visits, 0 orders | It's the listing/images — revise before re-spending |
+| Any listing with 25+ visits, 0 orders | It's the listing/images. Revise before re-spending |
 
 **Kill rule:** total ads spend ≥ $60 with zero orders across all listings → pause program, revisit listings/price/mockups. (Unlikely with warm traffic, but written down = it's a rule, not a feeling.)
 
 **Success benchmark:** printables niche Etsy Ads ROAS norms run 1.5-3.0; >2.0 means scale, per Etsy seller reports.
 
-## Part 2 — Affiliate application packet
+## Part 2: Affiliate application packet
 
 ### Application order + requirements
 
@@ -43,17 +43,18 @@
 | 3 | **Skimlinks** (network → Quip + 20K merchants) | skimlinks.com | Site URL | One application covers Quip (10%) and most retail. Fast approval. |
 | 4 | **BURST** | burstoralcare.com affiliate application | Site + audience info | Verify current kids' program terms at application; strong kids' line. |
 | 5 | **GLO Science** | via their program page | Site live first | Apply AFTER the whitening post publishes (they'll review the content context). |
-| 6 | **Opencare** | opencare.com partners | Site live + booking value prop | $35/booking — apply last; needs an established-looking site. |
+| 6 | **Opencare** | opencare.com partners | Site live + booking value prop | $35/booking. Apply last; needs an established-looking site. |
 
 ### Application blurb (reuse/adjust per form)
 
 ```
 Brush With Me (brushwithme.com) publishes hygienist-reviewed oral care
-education for parents, teachers, and adults — currently [X] in-depth
-guides plus a line of printable routine tools. Our content recommends
-products in context (brushing routines, kids' habits, whitening,
-flossing) with full FTC disclosure. We're building our Pinterest and
-email channels with a dental hygienist as our expert reviewer.
+education for parents, teachers, and adults. We currently publish 15
+in-depth guides plus a line of printable routine tools. Our content
+recommends products in context (brushing routines, kids' habits,
+whitening, flossing) with full FTC disclosure. We're building our
+Pinterest and email channels with a dental hygienist as our expert
+reviewer.
 ```
 
 ### Placement activation checklist (after approvals)
@@ -63,11 +64,11 @@ email channels with a dental hygienist as our expert reviewer.
 - [ ] Post 10 (bad breath): Amazon scraper/mouthwash/picks
 - [ ] Post 11 (dentist prep): Amazon play kit/book + Opencare (once approved)
 - [ ] Posts 03/04/05/07/08/09: Amazon kids' products
-- [ ] Every placement: disclosure line already in post copy — verify on publish
+- [ ] Every placement: the disclosure line is already in post copy. Verify on publish
 - [ ] Jessie approves each brand BEFORE links go live (per AFFILIATE_SHORTLIST compliance rules)
 
 ### Revenue expectations (set now, measured Day 30+)
 
-- Month 1-2: $0-50 (traffic-dependent — links go live with the drip-publish)
+- Month 1-2: $0-50 (traffic-dependent; links go live with the drip-publish)
 - Maturity (month 4-6): 12-15 sales/mo at ~$25 avg = $300-375/mo
 - **Attribution rule:** weekly analytics session logs clicks + conversions per program; anything 90 days with zero clicks gets pruned from placements

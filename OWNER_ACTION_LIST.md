@@ -26,7 +26,7 @@
 - [ ] **Etsy Ads**: approve the $3/day test budget (spec in content/ETSY_ADS_AND_AFFILIATE_PACKET.md — starts only after 2-3 reviews exist, so this is a future-approval, not today's spend)
 - [ ] **Optional Canva Pro** $13/mo — recommended for the pin/template production volume
 
-## 🟢 Priority 4 — Jessie's review form (goes live after Priority 1)
+~~Jessie review: COMPLETE (returned 2026-09-30, applied 2026-10-03, 32/5, see WORK_LOG Day 13)~~
 
 - [ ] **Upload the review form** (after brushwithme.com is live in cPanel):
   1. cPanel → File Manager → open the `brushwithme.com` document root (created when you added the addon domain)
@@ -57,3 +57,7 @@ Say **"Owner setup complete — run Day 12"** and Accomplish will:
 6. Begin the 3/day pin cadence and 2 posts/week drip per PUBLISH_SCHEDULE.md
 
 **The whole launch sequence is staged. Your 60-90 minutes of setup + Jessie's review is the only thing between the sprint and go-live.**
+### Added 2026-10-03 (after Jessie's review)
+
+- [ ] **DNS: add SPF record for brushwithme.com** (5 min, registrar/Squarespace DNS): `v=spf1 a mx include:spf.hostgator.com ~all`. Without it, form notification emails from the HostGator server to chris@webkujenga.com (Google Workspace) likely land in spam or get dropped. Server-side backup files in /review/reviews/ are unaffected and remain the reliable copy.
+- [x] ~~Jessie's review~~ COMPLETE: submitted 2026-09-30, retrieved 2026-10-03 from /review/reviews/, all 5 fixes applied same day (see WORK_LOG Day 13).

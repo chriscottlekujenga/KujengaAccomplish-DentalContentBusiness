@@ -288,3 +288,21 @@ Batch-executed Days 6-11 with all human-gated tasks consolidated into OWNER_ACTI
 - Owner: send Jessie **brushwithme.com/review** + the password — the form is fully ready (autosave means she can do it across multiple sittings on her phone)
 - Owner runs: `Owner setup complete — run Day 12`
 - Accomplish will: apply Jessie's fixes when her submission arrives (check email + /review/reviews/ backups), produce lead magnet + pins, configure WordPress, publish posts 01-02, wire the email automation
+
+## 2026-10-03 � Day 13: Jessie's review returned and applied (32 Approve / 5 Fix)
+
+**Review retrieved.** Submission found at `/home4/ab39928/brushwithme.com/review/reviews/review_2026-09-30_195211.txt` (form v2 server backup; written 2026-09-30 19:52). Owner retrieved it via cPanel File Manager and pasted contents into session. Diagnosis for future submissions: the `@mail()` copy to chris@webkujenga.com likely never arrived because brushwithme.com has **no SPF record** (HostGator shared IP, From: no-reply@brushwithme.com, recipient on Google Workspace). Fix queued for owner: add SPF `v=spf1 a mx include:spf.hostgator.com ~all` at DNS. Server backup file remains the reliable channel. `/review/reviews/` returns 403 by design (no directory listing); individual filenames are timestamped.
+
+**Review verdict: 32 Approve / 5 Fix.** Systematic answers (A1-A4) approve everything except byline, resolved as "Jessie Tang, RDH, 25 years." All product specs (P1-P7), emails (E1-E5), videos (V1-V5), and gates (F1-F4) approved outright.
+
+**Fixes applied (all 5):**
+- **10b:** Post 10 rewritten around the flagged section and full-file pass: clinical jargon removed, conversational tone as directed.
+- **11b:** Post 11 first-visit timing changed to "when the first tooth erupts."
+- **12a/12b/12c:** Post 12 rewritten technique-first (person and gumline technique over brush type; 12a comment preserved), "oscillating has more evidence" framing removed, UV/whitening-modes section (12c) deleted entirely.
+- **Bylines (A1):** All content now "Jessie Tang, RDH with 25 years" (21 files + 3 [X] placeholders in email/product copy resolved to 25).
+
+**Global rules recorded in `docs/BRAND_BRIEF.md` section 8:** byline locked; no em/en dashes in any content, now and moving forward (applied via full natural rewrite of content files, not mechanical find-replace: sentence structure was restructured so prose flows without dashes; verified zero em/en dashes remain across all 15 posts, 5 product specs, emails, pins, video scripts, and style docs); conversational no-jargon tone; gumline-technique-over-brush claim rule; expertise boundary rule (non-hygiene feature claims go back to Jessie or get cut).
+
+**Consistency note:** Posts 02/03/13 use "first birthday or within 6 months of first tooth." Jessie approved posts 01-08 and 13a-b explicitly, so that wording stands; post 11 now carries her eruption wording per 11b. No conflict: both framings may appear site-wide.
+
+**Next command:** Owner setup complete ? run Day 12 (Canva production, WordPress + posts 01-02, MailerLite automation, Etsy listings, pin cadence). All content blockers from the review are now cleared.

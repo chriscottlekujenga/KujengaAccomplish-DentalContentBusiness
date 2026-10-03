@@ -1,11 +1,11 @@
-# PUBLISH_SCHEDULE.md — Drip-Publish + Quick-Index Plan
+# PUBLISH_SCHEDULE.md: Drip-Publish + Quick-Index Plan
 
 > Created Day 7 of the accelerated sprint. Implements the decision from planning: NO backdating; bulk-created, drip-published. Evergreen posts display no publish dates (theme setting at site setup); "Last updated" stays enabled as a legitimate freshness signal.
 
 ## Publishing rules
 
-- **Cadence:** 2 posts/week (Tue + Thu) — 15 existing posts = ~7.5 weeks of runway; sprint continues producing in parallel
-- **Quick-index:** submit the week's 2 URLs to Google Search Console the day they publish (not batched — avoids the mass-upload footprint)
+- **Cadence:** 2 posts/week (Tue + Thu). 15 existing posts = about 7.5 weeks of runway; sprint continues producing in parallel
+- **Quick-index:** submit the week's 2 URLs to Google Search Console the day they publish (not batched; this avoids the mass-upload footprint)
 - **Date display:** hidden on all evergreen posts (theme setting); "Last updated" shown on revised posts
 - **Internal links:** each new post must carry ≥2 internal links to already-published posts (the library interlinks from day one)
 
@@ -24,7 +24,7 @@
 
 **Sequencing logic:** posts 1-2 launch first because every other post links to them (2-2-2 and brush/floss are the backbone). Kids' content leads (Pinterest audience is parent-heavy); adult content follows.
 
-## Weeks 9-15 (posts 16-30 — to be drafted post-sprint)
+## Weeks 9-15 (posts 16-30; to be drafted post-sprint)
 
 Candidate queue (from keyword research backlog):
 16. How to Teach a Toddler to Spit Toothpaste
@@ -51,10 +51,10 @@ Candidate queue (from keyword research backlog):
 
 ## Launch-week priorities (the week the domain goes live)
 
-1. Site setup (theme, pages, evergreen-date setting) — owner-assisted session
-2. Publish posts 01+02 (Tue) — quick-index both same day
+1. Site setup (theme, pages, evergreen-date setting): owner-assisted session
+2. Publish posts 01+02 (Tue); quick-index both same day
 3. Claim Pinterest URL
 4. Etsy shop opens; product pins go live
 5. Lead magnet capture live → MailerLite automation on
 
-**The site can go live mid-sprint without waiting for all 30 posts — 15 quality posts is already a resource site, and drip keeps the freshness signal running for 2 months.**
+**The site can go live mid-sprint without waiting for all 30 posts. 15 quality posts is already a resource site, and drip keeps the freshness signal running for 2 months.**
