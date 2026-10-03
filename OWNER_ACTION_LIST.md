@@ -59,5 +59,10 @@ Say **"Owner setup complete — run Day 12"** and Accomplish will:
 **The whole launch sequence is staged. Your 60-90 minutes of setup + Jessie's review is the only thing between the sprint and go-live.**
 ### Added 2026-10-03 (after Jessie's review)
 
-- [ ] **DNS: add SPF record for brushwithme.com** (5 min, registrar/Squarespace DNS): `v=spf1 a mx include:spf.hostgator.com ~all`. Without it, form notification emails from the HostGator server to chris@webkujenga.com (Google Workspace) likely land in spam or get dropped. Server-side backup files in /review/reviews/ are unaffected and remain the reliable copy.
 - [x] ~~Jessie's review~~ COMPLETE: submitted 2026-09-30, retrieved 2026-10-03 from /review/reviews/, all 5 fixes applied same day (see WORK_LOG Day 13).
+
+### Updated 2026-10-03 (form v3: reviews now land in the GitHub repo — no email dependency)
+
+- [x] ~~DNS: add SPF record~~ CANCELLED by owner decision. Reviews no longer depend on email: the form now posts submissions directly into this GitHub repo as issues, and the server-side backup file in /review/reviews/ remains as the second channel. Email notification is demoted to best-effort only.
+- [ ] **GitHub: create the fine-grained PAT the form needs** (about 5 min): github.com > Settings > Developer settings > Fine-grained tokens > Generate new token. Repository access: "Only select repositories" > KujengaAccomplish-DentalContentBusiness. Permissions: Issues > Read and write. Expiration: about 90 days (calendar note to renew; the form keeps working via its server backup even if the token lapses).
+- [ ] **cPanel: upload the token file** (2 min, File Manager): save the token in a plain text file named exactly `.gh_review_token`, then upload it to `/home4/ab39928/` (the parent folder, NOT inside brushwithme.com/). Files there are not web-accessible, so the token never serves to the public. Form v3 reads it from that exact path.

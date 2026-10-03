@@ -1,17 +1,25 @@
 <?php
 /**
- * Brush With Me — Clinical Review Form (Password-Gated)
+ * Brush With Me — Clinical Review Form (Password-Gated) — v3
  * URL: brushwithme.com/review  (this file = index.php inside /review/)
  * Gate: session-based password check (hash below)
  * Features: per-item links to the referenced content (GitHub), draft autosave
  *           via localStorage (restores across visits, clears on submit),
- *           results emailed to owner + timestamped backup in /review/reviews/
+ *           submissions posted to the GitHub repo as an Issue (primary),
+ *           + timestamped backup in /review/reviews/ (always, independent of email)
+ * Token:    fine-grained PAT (Issues: read/write) read from /home4/ab39928/.gh_review_token
+ *           (one level above the webroot; never inside it, never committed)
  */
 
 define('PASSWORD_HASH', '$2y$10$Zjb2g1qYEhk2YIypCKkxZeHb49HwH6FW2N.ebaysdrQD3Vic4P9dW'); // bcrypt ($2y$ for PHP compat), generated 2026-09-26
-define('OWNER_EMAIL', 'chris@webkujenga.com'); // TODO: swap to hello@brushwithme.com when brand email exists
+define('OWNER_EMAIL', 'chris@webkujenga.com'); // demoted to best-effort notification; not load-bearing since v3
 define('BRAND', 'Brush With Me');
 $BACKUP_DIR = __DIR__ . '/reviews';
+
+// GitHub submission target
+define('GH_API', 'https://api.github.com/repos/chriscottlekujenga/KujengaAccomplish-DentalContentBusiness/issues');
+define('GH_REPO_URL', 'https://github.com/chriscottlekujenga/KujengaAccomplish-DentalContentBusiness/issues');
+define('GH_TOKEN_PATH', '/home4/ab39928/.gh_review_token'); // outside webroot; owner uploads via cPanel
 
 // GitHub base for content links
 define('GH', 'https://github.com/chriscottlekujenga/KujengaAccomplish-DentalContentBusiness/blob/main/');
@@ -166,13 +174,63 @@ if ($unlocked && $_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['gate_pa
   if ($overall !== '') { $lines[] = ''; $lines[] = '== OVERALL NOTES =='; $lines[] = $overall; }
   $body = implode("\n", $lines);
 
-  $host = $_SERVER['HTTP_HOST'] ?? 'brushwithme.com';
-  $ok1 = @mail(OWNER_EMAIL, '[' . BRAND . '] Clinical review submitted ' . date('Y-m-d'), $body,
-      "From: no-reply@$host\r\nContent-Type: text/plain; charset=UTF-8");
+  // ---- Channel 1 (primary): GitHub Issue ----
+  $gh_issue_url = ''; $gh_http = 0; $missing = [];
+  $token = '';
+  if (is_readable(GH_TOKEN_PATH)) { $token = trim((string)file_get_contents(GH_TOKEN_PATH)); }
+  if ($token === '') { $missing[] = 'token file missing at ' . GH_TOKEN_PATH; }
+  else {
+    $payload = json_encode([
+      'title'  => '[' . BRAND . '] Clinical review submitted ' . date('Y-m-d'),
+      'body'   => $body,
+      'labels' => ['clinical-review'],
+    ]);
+    $ch = curl_init(GH_API);
+    curl_setopt_array($ch, [
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_POST           => true,
+      CURLOPT_POSTFIELDS     => $payload,
+      CURLOPT_TIMEOUT        => 15,
+      CURLOPT_CONNECTTIMEOUT => 8,
+      CURLOPT_HTTPHEADER     => [
+        'Authorization: Bearer ' . $token,
+        'Accept: application/vnd.github+json',
+        'X-GitHub-Api-Version: 2022-11-28',
+        'Content-Type: application/json',
+        'User-Agent: brushwithme-review-form',
+      ],
+    ]);
+    $resp = curl_exec($ch);
+    $gh_http = (int)curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
+    curl_close($ch);
+    if ($gh_http === 201 && $resp) {
+      $data = json_decode($resp, true);
+      $gh_issue_url = $data['html_url'] ?? '';
+    } elseif ($gh_http === 401 || $gh_http === 403 || $gh_http === 404) {
+      $missing[] = 'GitHub rejected the token (HTTP ' . $gh_http . ') — check PAT scope/expiry';
+    } elseif ($gh_http === 0) {
+      $missing[] = 'could not reach api.github.com (network/DNS)';
+    } else {
+      $missing[] = 'GitHub API HTTP ' . $gh_http;
+    }
+  }
+
+  // ---- Channel 2: server backup file (always attempted, independent) ----
   if (!is_dir($BACKUP_DIR)) { @mkdir($BACKUP_DIR, 0755); }
-  $ok2 = @file_put_contents($BACKUP_DIR . '/review_' . date('Y-m-d_His') . '.txt', $body);
-  $sent = $ok1 || $ok2;
-  if (!$sent) { $error = 'Could not save or send — tell Chris; your answers are still on screen (do not refresh).'; }
+  $ok_backup = @file_put_contents($BACKUP_DIR . '/review_' . date('Y-m-d_His') . '.txt', $body);
+
+  // ---- Channel 3 (best-effort notification only): email ----
+  $host = $_SERVER['HTTP_HOST'] ?? 'brushwithme.com';
+  @$mail_ok = @mail(OWNER_EMAIL, '[' . BRAND . '] Clinical review submitted ' . date('Y-m-d'), $body,
+      "From: no-reply@$host\r\nContent-Type: text/plain; charset=UTF-8");
+  $ok1 = ($gh_issue_url !== '');
+
+  $sent = $ok1 || (bool)$ok_backup; // success if EITHER GitHub issue or backup file landed
+  if ($sent && $ok_backup && !$ok1 && !empty($missing)) {
+    $error = 'Saved on the server, but the GitHub copy failed (' . implode('; ', $missing) . '). Tell Chris — nothing is lost.';
+  } elseif (!$sent) {
+    $error = 'Could not save or send — tell Chris; your answers are still on screen (do not refresh).';
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -238,7 +296,10 @@ if ($unlocked && $_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['gate_pa
   <!-- ============ SUCCESS ============ -->
   <div class="success">
     <b>Thank you, Jessie — your review is in. 🎉</b><br>
-    Your answers were sent to Chris and saved as a backup.<br>
+    <?php if ($ok1 && $gh_issue_url !== ''): ?>
+      Posted to the project tracker: <a href="<?php echo htmlspecialchars($gh_issue_url); ?>" target="_blank" rel="noopener">view it here ↗</a><br>
+    <?php endif; ?>
+    <?php if ($ok_backup): ?><span class="small">Backup copy also saved on the server.</span><br><?php endif; ?>
     Fixes get applied to everything, and your rules get recorded for all future content.<br><br>
     <span class="small">Nothing publishes without your sign-off on that item.</span>
   </div>
@@ -252,7 +313,7 @@ if ($unlocked && $_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['gate_pa
   <div class="notice">
     <b>How this works:</b> each row = one claim or decision. Mark <b>Approve</b>, <b>Fix</b>, or <b>Skip</b> — add a comment on any Fix (or wherever you have thoughts). Each item has a
     <b>View content ↗</b> link to the exact document it refers to. Your progress <b>saves automatically</b> as you go — leave and come back anytime on this device; it clears after you submit.
-    Submit at the bottom — it goes straight to Chris. Works on your phone. <a href="?lock=1">Lock again</a>
+    Submit at the bottom — it lands straight in the project tracker. Works on your phone. <a href="?lock=1">Lock again</a>
   </div>
   <div class="restore" id="restoreNote">✏️ <b>Restored your saved progress</b> — continue where you left off.</div>
 
@@ -279,8 +340,8 @@ if ($unlocked && $_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['gate_pa
   <textarea class="overall-area" name="overall" placeholder="Anything else — tone, strategy, ideas, concerns. You can also just talk to Chris directly; this is the paper trail."></textarea>
 
   <div class="saved-note" id="saveNote">✓ Progress saved on this device</div>
-  <button type="submit">Send Review to Chris →</button>
-  <p class="small" style="text-align:center;">Your answers save automatically as you go and even if email fails (backup file on the server). Do not refresh after submitting.</p>
+  <button type="submit">Send Review →</button>
+  <p class="small" style="text-align:center;">Your answers save automatically as you go and are delivered two ways (project tracker + server backup). Do not refresh after submitting.</p>
   </form>
 
   <script>
