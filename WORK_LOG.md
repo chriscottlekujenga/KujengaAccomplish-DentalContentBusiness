@@ -364,3 +364,23 @@ Batch-executed Days 6-11 with all human-gated tasks consolidated into OWNER_ACTI
 
 ### Next action
 - Owner says "run DNS cutover" to point brushwithme.com at Nexcess (A record 209.87.149.175, rollback values recorded first, MX untouched) or continue with review-form migration and token upload, then remaining owner accounts: Search Console, MailerLite, Canva, Etsy (BrushWithMeCo), Pinterest.
+
+
+## 2026-10-03 - Day 12 (continued): WordPress Part 7 verification pass
+
+### What Accomplish did
+- Ran the WORDPRESS_SETUP_GUIDE Part 7 verification checklist against the Nexcess preview (https://4c66b579a0.nxcli.io/). All ten URLs return HTTP 200 with no redirects: /, /about/, /contact/, /privacy-policy/, /terms-of-use/, /affiliate-disclosure/, /medical-disclaimer/, /brush-or-floss-first/, /2-2-2-rule-brushing-teeth/, /category/routines/.
+- Confirmed clean: zero em/en dashes in rendered text (brand rule holds); no [launch date] placeholders remain; comment form absent on all pages (comments and pingbacks off); newsletter block present on Home; site title and tagline correct ("Brush With Me - Oral care routines reviewed by a Registered Dental Hygienist.").
+- Menus verified: Primary = Home, About, Contact; Footer = Medical Disclaimer, Affiliate Disclosure, Terms of Use, Privacy Policy. Home hero CTA ("Start the routine") links to post 01; featured-posts block and "Browse all posts" link to /category/routines/.
+- Affiliate disclosure verified on post 01 (the only published post whose source contains affiliate content; wording is "Affiliate disclosure: we may earn a commission on purchases through these links..." - note it differs slightly from the guide's suggested line). Post 02 has no affiliate links, so no disclosure is needed. Outbound product links are intentionally absent until affiliate programs approve.
+- /review form still live on HostGator behind the password gate, as designed; not yet migrated to Nexcess.
+- DNS check: brushwithme.com still resolves to 216.172.184.75 (HostGator). Cutover to Nexcess (A record 209.87.149.175) remains owner-gated.
+- wp-admin session from Day 12 has expired (redirects to wp-login.php). Two cosmetic gaps now need an owner login: (1) Site Icon/favicon not set (WordPress shows no favicon), (2) stray "Kadence WP" footer credit link still present.
+
+### Key results
+- Revenue: $0 (pre-launch). Traffic: preview-only, no public traffic yet.
+- Wins: full Part 7 verification PASSES on every automated checkpoint; site content is confirmed launch-ready pending the two cosmetic owner items and DNS cutover.
+- Friction: interactive file-permission/user-approval prompts timed out this session, so no wp-admin changes could be made (session had expired anyway; owner rotated credentials into a password manager by design, none stored in repo).
+
+### Next action
+- Owner logs into wp-admin (https://4c66b579a0.nxcli.io/wp-admin/) and says "Set site icon and remove Kadence footer credit", OR says "Run DNS cutover" (A record 209.87.149.175, record rollback values first, MX untouched), OR continues the review-form migration and GitHub PAT token upload per DAY_12_CHECKLIST.md, then remaining owner accounts: Search Console, MailerLite, Canva, Etsy (BrushWithMeCo), Pinterest.
