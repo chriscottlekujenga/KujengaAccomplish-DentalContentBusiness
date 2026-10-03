@@ -320,3 +320,25 @@ Batch-executed Days 6-11 with all human-gated tasks consolidated into OWNER_ACTI
 **Owner steps queued (see OWNER_ACTION_LIST.md):** create the PAT (Settings > Developer settings > Fine-grained tokens, this repo only, Issues read/write), save as plain text named exactly `.gh_review_token`, upload via cPanel File Manager to `/home4/ab39928/`. Then a live test submission verifies the issue appears, and the form is relocked.
 
 **Next command:** Owner setup complete → run Day 12 (Canva production, WordPress + posts 01-02, MailerLite automation, Etsy listings, pin cadence). Repo-side Day 12 prep that does not require owner accounts is being staged now.
+
+## 2026-10-03 — Day 12 staging: site pages + WordPress setup guide
+
+### What Accomplish did
+- Continued the thread from the last session ("repo-side Day 12 prep that does not require owner accounts is being staged now").
+- Identified the gap: all 15 posts, pins, email, and product specs existed, but no website pages and no WordPress configuration guide.
+- Created `content/site-pages/` with 8 ready-to-paste files: home-page, about-page, contact-page, privacy-policy, terms-of-use, affiliate-disclosure, medical-disclaimer, and WORDPRESS_SETUP_GUIDE.
+- All copy follows reviewer-locked rules: byline "Jessie Tang, RDH, 25 years of clinical dental hygiene experience", no em/en dashes (verified programmatically), warm non-clinical tone, "We teach the routine; your dentist handles the treatment" recurring line, affiliate + review seal framing.
+- WORDPRESS_SETUP_GUIDE.md covers: owner Softaculous install steps, GeneratePress theme config (static homepage, hide dates, post-name permalinks, comments/pingbacks off), page creation table mapping each file to its slug and menu placement, minimal plugin stack (MailerLite forms, LiteSpeed Cache, Site Kit only, no SEO mega plugins or page builders), newsletter wiring, first publish workflow for posts 01+02, same-day Search Console quick-index, and end-of-day verification checklist.
+- Legal pages include [launch date] placeholders for the owner to fill at go-live.
+
+### What Jessie reviewed
+- Not yet. All site page copy will be included in the next review packet. No clinical claims beyond existing approved content were introduced; product and affiliate pages carry only education framing.
+
+### Key results
+- Revenue: $0 (pre-launch). Traffic: 0 (pre-launch).
+- Wins: the entire Day 12 site build can now run from the repo with zero content drafting; the WordPress guide turns owner setup into a checklist.
+- Friction: none repo-side. Owner-gated items remain: WordPress install, Canva, MailerLite, Search Console, Etsy, Pinterest, and the GitHub PAT for the review form.
+
+### Next action
+- Owner completes setup steps (OWNER_ACTION_LIST.md), then says: "Owner setup complete — run Day 12".
+- Accomplish then executes the WordPress build and first publish per WORDPRESS_SETUP_GUIDE.md, and stages the Jessie review packet for the site pages.
