@@ -342,3 +342,25 @@ Batch-executed Days 6-11 with all human-gated tasks consolidated into OWNER_ACTI
 ### Next action
 - Owner completes setup steps (OWNER_ACTION_LIST.md), then says: "Owner setup complete — run Day 12".
 - Accomplish then executes the WordPress build and first publish per WORDPRESS_SETUP_GUIDE.md, and stages the Jessie review packet for the site pages.
+
+
+## 2026-10-03 - Day 12: WordPress built on Nexcess, site content live
+
+### What Accomplish did
+- Logged in to wp-admin on the new Nexcess site (4c66b579a0.nxcli.io) and executed WORDPRESS_SETUP_GUIDE Parts 2 to 6 via the WordPress REST API using the authenticated admin session.
+- Core settings: site title "Brush With Me", tagline "Oral care routines reviewed by a Registered Dental Hygienist.", permalinks Post name (/%postname%/), default comments and pingbacks off, static homepage set to the Home page.
+- Created all 7 pages from content/site-pages/ source of truth: home (5), about (6), contact (7), privacy-policy (8), terms-of-use (9), affiliate-disclosure (10), medical-disclaimer (11). Launch date placeholders filled: October 3, 2026. Converted markdown via GitHub markdown API and a local converter (GitHub API rate limits noted). Duplicate-email bug root-caused earlier: chris@webkujenga.com was already the admin account email; new admin user chris (chris@wearekujenga.com) created instead.
+- Published 2 posts from repo with category Routines (id 2): brush-or-floss-first (Should You Brush or Floss First? A Hygienist Explains the Right Order) and 2-2-2-rule-brushing-teeth (The 2-2-2 Rule for Teeth: The Simple Routine Dentists Wish Everyone Used). Excerpts from file meta descriptions, SEO packaging blocks stripped, [link] placeholders stripped for now (affiliate links pending). Comments/pings closed. Duplicated creation attempts cleaned up (posts 12 and 19 trashed).
+- Menus built via nav-menus UI (REST menu-items POST rejected on this host): Main (primary): Home custom link /, About, Contact, correct order. Footer (footer): Privacy Policy, Terms of Use, Affiliate Disclosure, Medical Disclaimer.
+- Footer legal links: added footer-navigation element to Kadence footer bottom row via the Customizer JS API (wp.customize.control('footer_items')) and published. Home page theme title hidden via Kadence meta _kad_post_title=hide (single H1 on homepage).
+- Nexcess Page Cache enabled with clear-on-publish; Object Cache flushed; Cache Enabler present.
+- Home page content rewritten with clean HTML (hero, 3-column differentiation, Where to start cards, review seal, newsletter anchor block) replacing markdown artifacts.
+- Owner completed password changes before this session continued; no passwords handled or recorded in chat beyond what was already exposed (rotation completed by owner; app password for a0a84a1e_admin exists as uuid cd7fe66d and should be revoked once no longer needed).
+
+### Key results
+- Revenue: $0 (pre-launch). Traffic: 0 (pre-launch).
+- Wins: full site (7 pages, 2 posts, menus, footer, settings) is live on the Nexcess preview URL with real repo-approved content; site can go live at brushwithme.com as soon as DNS flips; the Kadence footer fix and REST/UI fallback paths are documented for future sessions.
+- Friction: menu-items REST POST consistently rejected (Invalid parameter menus) on this WP build: menus must be built through the admin UI; page-cache initially served menus-empty markup until cache-clear; several overlapping post-creation attempts created duplicates that were cleaned.
+
+### Next action
+- Owner says "run DNS cutover" to point brushwithme.com at Nexcess (A record 209.87.149.175, rollback values recorded first, MX untouched) or continue with review-form migration and token upload, then remaining owner accounts: Search Console, MailerLite, Canva, Etsy (BrushWithMeCo), Pinterest.
