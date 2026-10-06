@@ -384,3 +384,20 @@ Batch-executed Days 6-11 with all human-gated tasks consolidated into OWNER_ACTI
 
 ### Next action
 - Owner logs into wp-admin (https://4c66b579a0.nxcli.io/wp-admin/) and says "Set site icon and remove Kadence footer credit", OR says "Run DNS cutover" (A record 209.87.149.175, record rollback values first, MX untouched), OR continues the review-form migration and GitHub PAT token upload per DAY_12_CHECKLIST.md, then remaining owner accounts: Search Console, MailerLite, Canva, Etsy (BrushWithMeCo), Pinterest.
+
+## 2026-10-06 — Staging design refresh and WordPress-native review storage
+
+### What Accomplish did
+- Deployed `site/wordpress/mu-plugins/brush-with-me.php` to the Nexcess staging install as a Must-Use plugin.
+- Replaced the staging homepage presentation with an original, responsive Brush With Me design: a warm editorial layout, family-focused routine cards, and custom CSS illustration. No competitor assets or copy were used.
+- Added `/review/` as a WordPress-native clinical-review intake page. Each submission saves as a private `Clinical Reviews` entry in WordPress Admin, removing the need for a GitHub token or server-side review-file workflow on staging.
+- Uploaded the Brush With Me site icon and recorded the deployable source under `site/wordpress/`.
+- Verified the staging homepage and review page render successfully after deployment. No test review data was submitted.
+
+### Key results
+- Revenue: $0 (pre-launch). Traffic: preview-only. New posts: 0.
+- Win: the review workflow now has a durable WordPress dashboard destination and the redesigned staging site is backed by versioned source.
+- Remaining risk: review submissions are private after saving, but `/review/` itself has no reviewer access gate yet.
+
+### Next action
+- Add reviewer access control or a protected-link strategy before DNS cutover, then complete the owner-account tasks that remain: Search Console, MailerLite, Canva, Etsy, and Pinterest.
