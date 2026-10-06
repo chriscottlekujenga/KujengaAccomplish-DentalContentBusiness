@@ -23,4 +23,14 @@ Must-Use plugins load automatically, so no admin-side activation is required. Vi
 
 ## Before production
 
-The review page needs an access-control decision before the public DNS cutover. Its submissions are private in the dashboard, but the form URL itself is presently reachable without a reviewer login. Add reviewer authentication or a protected link before pointing the production domain at this WordPress install.
+The review page is designed to require a reviewer password. Keep the hash out of Git by placing this separate, server-only file next to the Must-Use plugin:
+
+`wp-content/mu-plugins/00-bwm-review-access.php`
+
+```php
+<?php
+defined( 'ABSPATH' ) || exit;
+define( 'BWM_REVIEW_PASSWORD_HASH', '<password_hash output>' );
+```
+
+Do not deploy the review page to production until that configuration file is present. The password must be shared with invited reviewers through a separate private channel.

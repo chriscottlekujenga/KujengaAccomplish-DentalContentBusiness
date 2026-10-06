@@ -36,7 +36,33 @@ add_filter( 'query_vars', function ( $vars ) {
 
 add_action( 'after_switch_theme', function () { flush_rewrite_rules(); } );
 
+function bwm_review_access() {
+	if ( session_status() === PHP_SESSION_NONE ) {
+		session_start();
+	}
+	$configured = defined( 'BWM_REVIEW_PASSWORD_HASH' ) && BWM_REVIEW_PASSWORD_HASH;
+	$error = '';
+	if ( isset( $_GET['review_lock'] ) ) {
+		unset( $_SESSION['bwm_review_unlocked'] );
+	}
+	if ( $configured && 'POST' === $_SERVER['REQUEST_METHOD'] && isset( $_POST['bwm_gate_nonce'] ) ) {
+		$nonce = sanitize_text_field( wp_unslash( $_POST['bwm_gate_nonce'] ) );
+		$password = (string) wp_unslash( $_POST['review_password'] ?? '' );
+		if ( ! wp_verify_nonce( $nonce, 'bwm_review_gate' ) || ! password_verify( $password, BWM_REVIEW_PASSWORD_HASH ) ) {
+			$error = 'That password does not look right. Please try again.';
+		} else {
+			$_SESSION['bwm_review_unlocked'] = true;
+		}
+	}
+	return array(
+		'configured' => (bool) $configured,
+		'unlocked' => ! empty( $_SESSION['bwm_review_unlocked'] ),
+		'error' => $error,
+	);
+}
+
 function bwm_render_review_page() {
+	$access = bwm_review_access();
 	$submitted = false;
 	$error = '';
 	if ( 'POST' === $_SERVER['REQUEST_METHOD'] && isset( $_POST['bwm_review_nonce'] ) ) {
@@ -75,7 +101,9 @@ function bwm_render_review_page() {
 	?>
 	<!doctype html><html <?php language_attributes(); ?>><head><meta charset="<?php bloginfo( 'charset' ); ?>"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Clinical review | <?php bloginfo( 'name' ); ?></title><?php wp_head(); ?></head>
 	<body class="bwm-review-page"><main class="bwm-review-shell"><a class="bwm-wordmark" href="<?php echo esc_url( home_url( '/' ) ); ?>">Brush <span>With Me</span></a>
-	<?php if ( $submitted ) : ?><section class="bwm-success"><p class="bwm-kicker">Saved privately</p><h1>Thank you — your review is in.</h1><p>Your submission is now stored in the WordPress dashboard under <strong>Clinical Reviews</strong>.</p><a class="bwm-button" href="<?php echo esc_url( home_url( '/review/' ) ); ?>">Submit another review</a></section>
+	<?php if ( ! $access['configured'] ) : ?><section class="bwm-review-card"><p class="bwm-kicker">Review access unavailable</p><h1>This review workspace is being secured.</h1><p class="bwm-intro">Please contact the site owner for access.</p></section>
+	<?php elseif ( ! $access['unlocked'] ) : ?><section class="bwm-review-card"><p class="bwm-kicker">Clinical review workspace</p><h1>Enter the reviewer password.</h1><p class="bwm-intro">This keeps clinical submissions available only to invited reviewers.</p><?php if ( $access['error'] ) : ?><p class="bwm-form-error"><?php echo esc_html( $access['error'] ); ?></p><?php endif; ?><form method="post" class="bwm-review-form"><?php wp_nonce_field( 'bwm_review_gate', 'bwm_gate_nonce' ); ?><label>Reviewer password <input required type="password" name="review_password" autocomplete="current-password"></label><button class="bwm-button" type="submit">Open review workspace</button></form></section>
+	<?php elseif ( $submitted ) : ?><section class="bwm-success"><p class="bwm-kicker">Saved privately</p><h1>Thank you — your review is in.</h1><p>Your submission is now stored in the WordPress dashboard under <strong>Clinical Reviews</strong>.</p><a class="bwm-button" href="<?php echo esc_url( home_url( '/review/' ) ); ?>">Submit another review</a></section>
 	<?php else : ?><section class="bwm-review-card"><p class="bwm-kicker">Clinical review workspace</p><h1>Help us keep every routine trustworthy.</h1><p class="bwm-intro">This private workflow saves directly to Brush With Me’s WordPress dashboard. It is not published on the site.</p><?php if ( $error ) : ?><p class="bwm-form-error"><?php echo esc_html( $error ); ?></p><?php endif; ?>
 	<form method="post" class="bwm-review-form"><?php wp_nonce_field( 'bwm_submit_review', 'bwm_review_nonce' ); ?>
 	<div class="bwm-grid"><label>Your name <input required name="reviewer_name" value="<?php echo esc_attr( wp_unslash( $_POST['reviewer_name'] ?? '' ) ); ?>"></label><label>Email <input required type="email" name="reviewer_email" value="<?php echo esc_attr( wp_unslash( $_POST['reviewer_email'] ?? '' ) ); ?>"></label></div>
