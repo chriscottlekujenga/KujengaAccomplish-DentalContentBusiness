@@ -401,3 +401,24 @@ Batch-executed Days 6-11 with all human-gated tasks consolidated into OWNER_ACTI
 
 ### Next action
 - Add reviewer access control or a protected-link strategy before DNS cutover, then complete the owner-account tasks that remain: Search Console, MailerLite, Canva, Etsy, and Pinterest.
+
+
+## 2026-10-07 - Launch hardening and owner-platform setup
+
+### What Accomplish did
+- Confirmed the Brush With Me Pinterest business profile is live with the approved bio and brushwithme.com website link.
+- Confirmed Canva brand colors: mint #B8DED4, teal #4A9B8E, coral #F2A48B.
+- Created the MailerLite 21-Day Challenge group and embedded form.
+- Added MailerLite DKIM, SPF, and verification DNS records; MailerLite is waiting for propagation.
+- Recorded Etsy progress: BrushWithMeCo is reserved; owner payout identity and setup fee remain.
+- Confirmed reviewer-access code is committed in site/wordpress/mu-plugins/brush-with-me.php (commit 0124aff). It requires a separate server-only password hash before deployment.
+- Updated DAY_12_CHECKLIST.md to distinguish completed, in-progress, and owner-only setup tasks.
+
+### Key results
+- Revenue: $0 | Traffic: pre-launch | New subscribers: 0 | New listings: 0 | New posts: 0.
+- Wins: email capture DNS is configured, the visual system and Pinterest presence are established, and review access has a safe deployable design.
+- Friction: MailerLite is waiting for DNS propagation; Etsy cannot proceed without owner identity and payment setup; production DNS is still serving the prior host.
+
+### Next action
+- Owner: provide or approve a reviewer password to configure the server-only review gate, then complete Etsy payout setup.
+- Accomplish: deploy and verify the review gate, enable MailerLite after authentication succeeds, create the lead magnet and first pin batch in Canva, then publish and schedule first-week content once production DNS resolves to Nexcess.
