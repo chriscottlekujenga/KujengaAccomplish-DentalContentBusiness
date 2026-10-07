@@ -18,12 +18,12 @@
 
 ## Owner-gated steps (in order, with time estimates)
 
-1. **GitHub token for the review form** (about 7 min): create fine-grained PAT (Issues read/write, this repo only), upload as .gh_review_token to /home4/ab39928/ via cPanel. Then signal to run the live test. (OWNER_ACTION_LIST has the exact steps.)
-2. **Canva account**: completed on the free tier. Brand Kit colors set to mint #B8DED4, teal #4A9B8E, and coral #F2A48B. Lead magnet and pin artwork remain the next production task.
+1. **GitHub token for the review form** (about 7 min): create fine-grained PAT (Issues read/write, this repo only), upload as .gh_review_token to /home4/ab39928/ via cPanel. Then signal to run the live test. (OWNER_ACTION_LIST has the exact steps.)
+2. **Canva account**: completed on the free tier. Brand Kit colors set to mint #B8DED4, teal #4A9B8E, and coral #F2A48B. Lead magnet and pin artwork remain the next production task.
 3. **WordPress install and design**: completed on Nexcess staging. The custom Brush With Me design, core pages, menus, first two posts, site icon, and WordPress-native review storage are live on staging. Production cutover is still pending public DNS propagation.
 4. **Google Search Console** (10 min): verify brushwithme.com (the meta-tag method integrates with the WordPress install step).
-5. **MailerLite account and form**: account created with hello@brushwithme.com; the 21-Day Challenge group and embedded form are drafted. DKIM, SPF, and domain-verification DNS records were added on 2026-10-07. Wait for MailerLite authentication before enabling the form and building the welcome automation.
-6. **Etsy shop**: shop name BrushWithMeCo and basic preferences are set. Etsy requires owner payout identity details and its one-time setup fee before listings can be published.
+5. **MailerLite account and form**: account created with hello@brushwithme.com; the 21-Day Challenge group and embedded form are drafted. DKIM, SPF, and domain-verification DNS records were added on 2026-10-07. Wait for MailerLite authentication before enabling the form and building the welcome automation.
+6. **Etsy shop**: shop name BrushWithMeCo and basic preferences are set. Etsy requires owner payout identity details and its one-time setup fee before listings can be published.
 7. **Pinterest business account**: Brush With Me business profile and public bio are live, with the website link added. Claim the website and schedule batch 1 after the production domain serves the Nexcess WordPress site.
 
 ## Trigger phrase
