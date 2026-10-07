@@ -2,7 +2,7 @@
 
 > Created 2026-10-03. Consolidates everything needed to go live. Every item points at paste-ready work that already exists in the repo. Owner-gated steps are marked clearly; everything else is already done or executable the moment the account exists.
 
-## Status: code-side complete
+## Status: launch preparation in progress
 
 - [x] All 15 posts drafted and dash-free, byline standardized ("Jessie Tang, RDH, 25 years")
 - [x] Jessie's clinical review applied in full (32 Approve / 5 Fix; commit dd791cc)
@@ -18,17 +18,17 @@
 
 ## Owner-gated steps (in order, with time estimates)
 
-1. **GitHub token for the review form** (about 7 min): create fine-grained PAT (Issues read/write, this repo only), upload as `.gh_review_token` to /home4/ab39928/ via cPanel. Then signal to run the live test. (OWNER_ACTION_LIST has the exact steps.)
-2. **Canva account** (10 min): free tier is enough. Then the lead magnet + pin batch build from content/products/LEAD_MAGNET_PRODUCTION.md and content/pins/PINS_BATCH_01.md specs. Optional: Canva Pro $13/mo decision.
-3. **WordPress install** (15 min): cPanel > Softaculous > WordPress on brushwithme.com. Theme: lightweight blog theme (GeneratePress or similar). Settings: hide publish dates on posts (evergreen), enable "last updated". Then posts 01 + 02 paste from content/posts/ (publish Tue + Thu per PUBLISH_SCHEDULE, quick-index both in Search Console same day).
+1. **GitHub token for the review form** (about 7 min): create fine-grained PAT (Issues read/write, this repo only), upload as .gh_review_token to /home4/ab39928/ via cPanel. Then signal to run the live test. (OWNER_ACTION_LIST has the exact steps.)
+2. **Canva account**: completed on the free tier. Brand Kit colors set to mint #B8DED4, teal #4A9B8E, and coral #F2A48B. Lead magnet and pin artwork remain the next production task.
+3. **WordPress install and design**: completed on Nexcess staging. The custom Brush With Me design, core pages, menus, first two posts, site icon, and WordPress-native review storage are live on staging. Production cutover is still pending public DNS propagation.
 4. **Google Search Console** (10 min): verify brushwithme.com (the meta-tag method integrates with the WordPress install step).
-5. **MailerLite account** (15 min, free tier): create, then paste the automation from content/MAILERLITE_SETUP.md: form > instant delivery > 3 welcome emails > weekly cadence.
-6. **Etsy shop open** (30 min): shop name BrushWithMeCo, banner/about/policies from content/ETSY_SHOP_SKELETON.md, then the 4 listings from content/products/PRODUCT_*.md (listing fees about $0.20 each). Set shop announcement. First listings live = the $9 chart bundle + $24 kit first (fastest conversion), classroom packs second.
-7. **Pinterest business account** (15 min): from content/pins/PINTEREST_SKELETON.md setup block (bio paste-ready); claim brushwithme.com once WordPress is live; schedule batch 1 at 3 pins/day per the launch table.
+5. **MailerLite account and form**: account created with hello@brushwithme.com; the 21-Day Challenge group and embedded form are drafted. DKIM, SPF, and domain-verification DNS records were added on 2026-10-07. Wait for MailerLite authentication before enabling the form and building the welcome automation.
+6. **Etsy shop**: shop name BrushWithMeCo and basic preferences are set. Etsy requires owner payout identity details and its one-time setup fee before listings can be published.
+7. **Pinterest business account**: Brush With Me business profile and public bio are live, with the website link added. Claim the website and schedule batch 1 after the production domain serves the Nexcess WordPress site.
 
 ## Trigger phrase
 
-Say **"Owner setup complete — run Day 12"** when steps 2-7 are done and I execute the remaining automatable parts (site config polish, first publish, automation verification, pin scheduling confirmation).
+Say **"Owner setup complete - run Day 12"** when steps 2-7 are done and I execute the remaining automatable parts (site config polish, first publish, automation verification, pin scheduling confirmation).
 
 ## First-week production targets once live
 
