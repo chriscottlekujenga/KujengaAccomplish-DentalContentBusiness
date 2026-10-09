@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1500" viewBox="0 0 1000 1500">
+  <a href="https://brushwithme.com/sugar-and-kids-teeth/">
+    <rect width="1000" height="1500" fill="#fffdf9"/>
+    <circle cx="880" cy="170" r="255" fill="#dff4eb"/>
+    <circle cx="110" cy="1370" r="185" fill="#eaf6fb"/>
+    <circle cx="905" cy="1215" r="26" fill="#f4836d"/>
+    <text x="78" y="125" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="32" font-weight="bold" letter-spacing="7" fill="#4a8294">BRUSH WITH ME</text>
+    <text x="80" y="470" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="84" font-weight="bold" fill="#17364c"><tspan x="80" dy="0">It's not HOW</tspan><tspan x="80" dy="104">MUCH sugar —</tspan><tspan x="80" dy="104">it's HOW OFTEN</tspan></text>
+    <rect x="82" y="788" width="230" height="14" rx="7" fill="#f4836d"/>
+    <text x="80" y="880" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="40" fill="#527085">The 20-minute acid rule, explained</text>
+    <text x="80" y="1332" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="36" font-weight="bold" fill="#17364c">✓ Reviewed by Jessie, RDH · 25 years clinical</text>
+    <text x="80" y="1388" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="28" fill="#4a8294">brushwithme.com</text>
+  </a>
+  <!-- Pin 14 · target: https://brushwithme.com/sugar-and-kids-teeth/ -->
+</svg>

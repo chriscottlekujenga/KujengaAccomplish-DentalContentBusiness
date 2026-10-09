@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1500" viewBox="0 0 1000 1500">
+  <a href="https://brushwithme.com/brush-or-floss-first/">
+    <rect width="1000" height="1500" fill="#fffdf9"/>
+    <circle cx="880" cy="170" r="255" fill="#dff4eb"/>
+    <circle cx="110" cy="1370" r="185" fill="#eaf6fb"/>
+    <circle cx="905" cy="1215" r="26" fill="#f4836d"/>
+    <text x="78" y="125" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="32" font-weight="bold" letter-spacing="7" fill="#4a8294">BRUSH WITH ME</text>
+    <text x="80" y="470" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="84" font-weight="bold" fill="#17364c"><tspan x="80" dy="0">You've been</tspan><tspan x="80" dy="104">brushing in the</tspan><tspan x="80" dy="104">wrong order</tspan><tspan x="80" dy="104">(probably)</tspan></text>
+    <rect x="82" y="892" width="230" height="14" rx="7" fill="#f4836d"/>
+    <text x="80" y="984" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="40" fill="#527085">Floss first? A hygienist explains.</text>
+    <text x="80" y="1332" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="36" font-weight="bold" fill="#17364c">✓ Reviewed by Jessie, RDH · 25 years clinical</text>
+    <text x="80" y="1388" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="28" fill="#4a8294">brushwithme.com</text>
+  </a>
+  <!-- Pin 01 · target: https://brushwithme.com/brush-or-floss-first/ -->
+</svg>
