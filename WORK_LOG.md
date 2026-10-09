@@ -422,3 +422,25 @@ Batch-executed Days 6-11 with all human-gated tasks consolidated into OWNER_ACTI
 ### Next action
 - Owner: provide or approve a reviewer password to configure the server-only review gate, then complete Etsy payout setup.
 - Accomplish: deploy and verify the review gate, enable MailerLite after authentication succeeds, create the lead magnet and first pin batch in Canva, then publish and schedule first-week content once production DNS resolves to Nexcess.
+
+## 2026-10-09 — DNS verification + Day 15 creative assets + checklist refresh (batch session)
+
+### What Accomplish did
+- **DNS troubleshooting (owner request):** owner reported DNS "should have propagated by now" after changing the zone editor A record in HostGator cPanel (webkujenga.com/cpanel) to Liquid Web. Verified via curl + two independent public resolvers (Google 8.8.8.8, Quad9 9.9.9.9): brushwithme.com resolves to **209.87.149.175** (Nexcess/Liquid Web) on both — propagation is COMPLETE. End-to-end: https://brushwithme.com serves HTTP 200 in ~0.5s with the correct title ("Brush With Me – Oral care routines reviewed by a Registered Dental Hygienist."); /review/ returns 200 on the new host; staging URL 4c66b579a0.nxcli.io 301-redirects to the live domain (canonical behavior confirmed). Verdict: no fault existed — any perceived staleness is local cache; flush instructions provided (chrome://net-internals/#dns, ipconfig /flushdns). **DNS cutover blocker CLOSED.**
+- **Day 15 creative assets (owner request: do all three tasks):**
+  - Lead magnet: built the complete 5-page print-ready HTML (site/lead-magnet/21-day-challenge.html) — cover, parent how-it-works page (3 rules + 5 chairside tips + 2-minute rule box), weeks 1-3 trackers with coral badge strips at days 7/14/21, cut-out certificate, kit CTA. Brand palette matches the live site exactly. Print via Ctrl+P with screen-instructions banner and @page media rules; grayscale-safe.
+  - Pinterest pins: wrote scripts/generate_pins.cjs (Node) generating all 15 pins as 1000x1500 SVGs in brand style (ink #17364c/sky #eaf6fb/mint #dff4eb/coral #f4836d), each with hook, sub-line, RDH seal, and clickable link to its target post; converted to PNG via ImageMagick (15 PNGs, ~100-200KB each). All in content/pins/svg/.
+  - Committed and pushed (c33d2a7, 32 files, 493 insertions).
+- **Checklist refresh:** updated DAY_12_CHECKLIST.md — WordPress item now records the verified cutover; Pinterest item notes claim/schedule is unblocked now that production DNS serves Nexcess.
+- **Reviewer password (task 1 of 3):** BLOCKED — needs BWM_REVIEW_PASSWORD_HASH in wp-config.php on the Nexcess server; requires owner wp-admin/host access (credentials in owner's password manager by design; nothing in repo). Plugin code is fully ready (site/wordpress/mu-plugins/brush-with-me.php).
+- Lead magnet + pins site upload and Pinterest scheduling remain queued for the next wp-admin/live session (needs owner login).
+
+### Key results
+- Revenue: $0 | Traffic: pre-launch (domain resolves; content drip not started) | New posts: 0 | Assets: 1 lead magnet + 15 pins (SVG+PNG) | Blockers closed: DNS cutover
+- Wins: all three requested tasks progressed in one batch — DNS verified+cutover closed, Day 15 creative fully produced in brand style (beyond spec: real files, not just specs), checklist synced to reality
+- Friction: ripgrep download failing in workspace (grep tool unusable — used bash grep fallback); git commit initially blocked by a stray Windows-nul file in the tree (worked around with explicit paths); wp-admin credentials unavailable to Accomplish by design
+
+### Next action
+- Owner: log into https://brushwithme.com/wp-admin/ (credentials from password manager) and say "wp-admin logged in" — unlocks in one pass: reviewer password hash setup, lead magnet upload (/21-day-challenge/), footer credit removal, MailerLite/GSC verification, pin scheduling
+- OR owner says "Build Day 16 assets" for more AI-only production (posts 16-30, batch-2 pins, video renders)
+- AI-side pending queue (after wp-admin access): deploy hash → verify /review/ gate on WordPress → upload lead magnet → publish schedule kickoff (2 posts/week + GSC quick-index) → MailerLite automation once DNS authenticates
